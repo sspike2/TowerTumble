@@ -122,7 +122,7 @@ public class UIScript : MonoBehaviour {     public static UIScript instance;
             
         });
     }      public void PurchaseNoAds()     {         FindObjectOfType<IAPManager>().BuyNonConsumable();     }      public void SetPurchaseState(string t)     {         purchasestatus.text = t;     }        public void play()     {          HUDScreen.Show( false );         MainMenuScreen.Hide( false );         GameManager.SetActive( true );          if (purchasedNoAds != 1)
-            AdManager.instance.ShowBanerAd();      }      // Update is called once per frame     void Update()     {      }      public void ScoreTextsUpdate(int score)     {         for (int i = 0 ; i < scoreTexts.Length ; i++)         {             scoreTexts[i].text = score + "";         }     }      public void HighScoreTextsUpdate(int score)     {         for (int i = 0 ; i < highScoreTexts.Length ; i++)         {             highScoreTexts[i].text = score + "";         }     }      public void NewHighScore()     {      }      public void GameOver()     {         Debug.Log( "gameover" );         //MainClass.instance.GameOver();         //Screenshot();         Invoke( "EnableDeathScreen", 0.5f );
+            AdManager.instance.ShowBanerAd();      }      // Update is called once per frame     void Update()     {      }      public void ScoreTextsUpdate(int score)     {         for (int i = 0 ; i < scoreTexts.Length ; i++)         {             scoreTexts[i].text = score + "";         }     }      public void HighScoreTextsUpdate(int score)     {         for (int i = 0 ; i < highScoreTexts.Length ; i++)         {             highScoreTexts[i].text = score + "";         }     }      public void NewHighScore()     {      }      public void GameOver()     {         Debug.Log( "gameover" );         //MainClass.instance.GameOver();         //Screenshot();         Invoke( nameof(EnableDeathScreen), 0.5f );
 
             }      public void HelpWindowOn()
     {
@@ -130,7 +130,7 @@ public class UIScript : MonoBehaviour {     public static UIScript instance;
     }     public void HelpWindowOff()
     {
         helpWindow.Hide();
-    }           void Screenshot()     {         // ScreenshotCamera.enabled = true;         //StartCoroutine(         //screenShotCamScript.TakeScreenShot();         //);     }      public void EnableDeathScreen()     {         DeathScreen.Show();
+    }           void Screenshot()     {         // ScreenshotCamera.enabled = true;         //StartCoroutine(         //screenShotCamScript.TakeScreenShot();         //);     }      public void EnableDeathScreen()     {         HUDScreen.Hide();          DeathScreen.Show();
 
         if (purchasedNoAds != 1)
             AdManager.instance.HideBannerAd();       }     public void DisableDeathScreen()     {         DeathScreen.Hide();     }     public void Restart()     {         adCounter++;         PlayerPrefs.SetInt( "adCounter", adCounter );

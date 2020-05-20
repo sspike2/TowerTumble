@@ -406,8 +406,8 @@ public class MainClass : MonoBehaviour
         lastGrid = NextGrid;
         var t = NextGrid.GetComponentsInChildren<Transform>();
 
-        var target = new Vector3(CameraTarget.transform.position.x, lastGrid.transform.position.y + 4f, CameraTarget.transform.position.z);
-        CameraTarget.transform.DOMove(target, 1f).SetDelay(.5f);
+        var target = new Vector3(CameraTarget.transform.position.x, CameraTarget.transform.position.y + (4f), CameraTarget.transform.position.z);
+        CameraTarget.transform.DOMove(target, 1f).SetDelay(1.5f);
 
         for (int i = 0; i < t.Length; i++)
         {
